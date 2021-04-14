@@ -55,13 +55,14 @@ test('change task status', () => {
 });
 
 test('change task title', () => {
-    const action = ChangeTaskStatusAC('todolistId2', '2', false);
+    const newTitle = 'new Title'
+    const action = ChangeTaskTitleAC('todolistId2', '2', newTitle);
     const endState = tasksListsReducer(startState, action);
 
-    expect(endState['todolistId2'][1].isDone).toBe(false)
-    expect(endState['todolistId2'][0].isDone).toBe(true)
-    expect(endState['todolistId1'][1].isDone).toBe(true)
-    expect(endState['todolistId1'][0].isDone).toBe(true)
+    expect(endState['todolistId2'][1].title).toBe(newTitle)
+    expect(endState['todolistId2'][0].title).toBe('Milk')
+    expect(endState['todolistId1'][1].title).toBe('JS')
+    expect(endState['todolistId1'][0].title).toBe('HTML&CSS')
 });
 
 
