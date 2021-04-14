@@ -8,7 +8,7 @@ import {
 } from './todolists-reducer';
 import {v1} from 'uuid';
 import {FilterValuesType, TasksStateType, TodolistType} from '../App';
-import {AddTaskAC, RemoveTaskAC, tasksListsReducer} from "./tasks-reducer";
+import {AddTaskAC, ChangeTaskStatusAC, RemoveTaskAC, tasksListsReducer} from "./tasks-reducer";
 
 let startState: TasksStateType;
 beforeEach(() => {
@@ -42,6 +42,14 @@ test('correct task should be added', () => {
     expect(endState['todolistId2'].length).toBe(3);
     expect(endState['todolistId1'].length).toBe(2);
     expect(endState['todolistId2'][2].title).toBe(title)
+});
+
+test('change task status', () => {
+    const action = ChangeTaskStatusAC('todolistId2', '2', false);
+    const endState = tasksListsReducer(startState, action);
+
+    expect(endState['todolistId2'][1].isDone).toBe(false)
+    expect(endState['todolistId1'][1].isDone).toBe(true)
 });
 
 
