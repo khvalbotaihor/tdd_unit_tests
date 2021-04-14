@@ -3,13 +3,13 @@ type StateType = {
     childrenCount: number
     name: string
 }
-type IncrementAge = {
+export type IncrementAge = {
     type: 'INCREMENT-AGE'
 }
-type IncrementChildrenCount = {
+export type IncrementChildrenCount = {
     type: 'INCREMENT-CHILDREN-COUNT'
 }
-type ChangeName = {
+export type ChangeName = {
     type: 'CHANGE-NAME',
     newName: string
 }
