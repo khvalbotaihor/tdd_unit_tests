@@ -8,7 +8,7 @@ import {
 } from './todolists-reducer';
 import {v1} from 'uuid';
 import {FilterValuesType, TasksStateType, TodolistType} from '../App';
-import {tasksListsReducer} from "./tasks-reducer";
+import {RemoveTaskAC, tasksListsReducer} from "./tasks-reducer";
 
 test('correct todolist should be removed', () => {
 const startState: TasksStateType = {
