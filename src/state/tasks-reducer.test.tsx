@@ -24,7 +24,7 @@ beforeEach(() => {
     }
 })
 
-test('correct todolist should be removed', () => {
+test('correct task should be removed', () => {
     const action = RemoveTaskAC('todolistId2', '1');
     const endState = tasksListsReducer(startState, action);
 
@@ -32,6 +32,15 @@ test('correct todolist should be removed', () => {
     expect(endState['todolistId1'].length).toBe(2);
     expect(endState['todolistId2'][1]).toBeUndefined()
     expect(endState['todolistId1'][0].id).toBe('1')
+});
+test('correct task should be added', () => {
+    const title = 'New Title';
+    const action = AddTaskAC('todolistId2', title);
+    const endState = tasksListsReducer(startState, action);
+
+    expect(endState['todolistId2'].length).toBe(3);
+    expect(endState['todolistId1'].length).toBe(2);
+    expect(endState['todolistId2'][2].title).toBe(title)
 });
 
 
