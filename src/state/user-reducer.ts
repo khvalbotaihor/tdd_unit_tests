@@ -19,19 +19,23 @@ type ActionType = IncrementAge | IncrementChildrenCount | ChangeName;
 export const userReducer = (state: StateType, action: ActionType) => {
     switch (action.type) {
         case 'INCREMENT-AGE':
-            let newState = {...state};//делаем копию
-            newState.age = state.age + 1;// у копии имеем право менять св-во
-            return newState;//возвращаем копию
-        case 'INCREMENT-CHILDREN-COUNT':
+            let newState = {...state};
+            newState.age = state.age + 1;
+            return newState;
+        case 'INCREMENT-CHILDREN-COUNT': {
+            let newState = {...state};
             return {
-                ...state,
+                ...newState,
                 childrenCount: state.childrenCount + 1
             };
-        case 'CHANGE-NAME':
+        }
+        case 'CHANGE-NAME': {
+            let newState = {...state};
             return {
-                ...state,
+                ...newState,
                 name: action.newName
             };
+        }
         default:
             throw new Error("I don't understand this type")
     }
