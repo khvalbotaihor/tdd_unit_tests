@@ -65,6 +65,17 @@ test('change task title', () => {
     expect(endState['todolistId1'][0].title).toBe('HTML&CSS')
 });
 
+test('task key is created in case new todoList is added', () => {
+    const newTitle = 'new Title'
+    const action = AddTodolistAC(newTitle);
+    const endState = tasksListsReducer(startState, action);
+
+    expect(endState['todolistId2'][1].title).toBe(newTitle)
+    expect(endState['todolistId2'][0].title).toBe('Milk')
+    expect(endState['todolistId1'][1].title).toBe('JS')
+    expect(endState['todolistId1'][0].title).toBe('HTML&CSS')
+});
+
 
 
 
