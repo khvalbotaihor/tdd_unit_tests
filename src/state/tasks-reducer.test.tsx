@@ -49,7 +49,19 @@ test('change task status', () => {
     const endState = tasksListsReducer(startState, action);
 
     expect(endState['todolistId2'][1].isDone).toBe(false)
+    expect(endState['todolistId2'][0].isDone).toBe(true)
     expect(endState['todolistId1'][1].isDone).toBe(true)
+    expect(endState['todolistId1'][0].isDone).toBe(true)
+});
+
+test('change task title', () => {
+    const action = ChangeTaskStatusAC('todolistId2', '2', false);
+    const endState = tasksListsReducer(startState, action);
+
+    expect(endState['todolistId2'][1].isDone).toBe(false)
+    expect(endState['todolistId2'][0].isDone).toBe(true)
+    expect(endState['todolistId1'][1].isDone).toBe(true)
+    expect(endState['todolistId1'][0].isDone).toBe(true)
 });
 
 

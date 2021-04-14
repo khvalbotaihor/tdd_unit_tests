@@ -41,9 +41,10 @@ export const tasksListsReducer = (state: TasksStateType, action: ActionsType): T
             let stateCopy = {...state}
             let todoList = stateCopy[action.todoListId]
             let task = todoList.find(t => t.id === action.taskId)
-
+            if (task) {
+                task.isDone = action.isDone
+            }
             return stateCopy
-
         }
 
         default:
