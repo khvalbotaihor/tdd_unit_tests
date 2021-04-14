@@ -20,8 +20,8 @@ const startState: TasksStateType = {
         {id: '2', title: "React Book", isDone: true}
     ]
 }
-
-    const endState = tasksListsReducer(startState, RemoveTaskAC('todolistId2', '1'))
+    const action = RemoveTaskAC('todolistId2', '1');
+    const endState = tasksListsReducer(startState, action);
 
     expect(endState['todolistId2'].length).toBe(1);
     expect(endState['todolistId1'].length).toBe(2);
