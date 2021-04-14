@@ -8,7 +8,7 @@ import {
 } from './todolists-reducer';
 import {v1} from 'uuid';
 import {FilterValuesType, TasksStateType, TodolistType} from '../App';
-import {AddTaskAC, ChangeTaskStatusAC, RemoveTaskAC, tasksListsReducer} from "./tasks-reducer";
+import {AddTaskAC, ChangeTaskStatusAC, ChangeTaskTitleAC, RemoveTaskAC, tasksListsReducer} from "./tasks-reducer";
 
 let startState: TasksStateType;
 beforeEach(() => {
