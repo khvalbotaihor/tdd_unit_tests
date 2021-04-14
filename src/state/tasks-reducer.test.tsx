@@ -10,17 +10,21 @@ import {v1} from 'uuid';
 import {FilterValuesType, TasksStateType, TodolistType} from '../App';
 import {RemoveTaskAC, tasksListsReducer} from "./tasks-reducer";
 
+let startState: TasksStateType;
+beforeEach(() => {
+    startState = {
+        'todolistId1': [
+            {id: '1', title: "HTML&CSS", isDone: true},
+            {id: '2', title: "JS", isDone: true}
+        ],
+        'todolistId2': [
+            {id: '1', title: "Milk", isDone: true},
+            {id: '2', title: "React Book", isDone: true}
+        ]
+    }
+})
+
 test('correct todolist should be removed', () => {
-const startState: TasksStateType = {
-    'todolistId1': [
-        {id: '1', title: "HTML&CSS", isDone: true},
-        {id: '2', title: "JS", isDone: true}
-    ],
-    'todolistId2': [
-        {id: '1', title: "Milk", isDone: true},
-        {id: '2', title: "React Book", isDone: true}
-    ]
-}
     const action = RemoveTaskAC('todolistId2', '1');
     const endState = tasksListsReducer(startState, action);
 
