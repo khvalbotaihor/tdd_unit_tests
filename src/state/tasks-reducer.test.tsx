@@ -26,7 +26,7 @@ const startState: TasksStateType = {
 
     expect(endState['todolistId2'].length).toBe(1);
     expect(endState['todolistId1'].length).toBe(2);
-    expect(endState['todolistId2'][0]).toBeUndefined()
+    expect(endState['todolistId2'][1]).toBeUndefined()
     expect(endState['todolistId1'][0].id).toBe('1')
 });
 
