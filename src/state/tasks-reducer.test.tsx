@@ -83,12 +83,9 @@ test('task is deleted when todolist is deleted', () => {
     const endState = tasksListsReducer(startState, action);
 
     const keys = Object.keys(endState)
-    const newKey = keys.find(k => k !=='todolistId1' && k!== 'todolistId2')
-    if (!newKey){
-        throw new Error('New key isnt added');
-    }
-    expect(keys.length).toBe(3)
-    expect(newKey).toBeDefined()
+
+    expect(keys.length).toBe(1)
+    expect(endState['todolistId2']).toBeUndefined()
 });
 
 
