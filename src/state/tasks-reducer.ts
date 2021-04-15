@@ -66,7 +66,6 @@ export const tasksListsReducer = (state: TasksStateType, action: ActionsType): T
             let stateCopy = {...state}
             stateCopy[v1()] = []
             return stateCopy
-
         }
 
         default:

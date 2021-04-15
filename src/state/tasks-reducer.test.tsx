@@ -75,7 +75,6 @@ test('task key is created in case new todoList is added', () => {
     if (!newKey){
         throw new Error('New key isnt added');
     }
-
     expect(keys.length).toBe(3)
     expect(newKey).toBeDefined()
 });
