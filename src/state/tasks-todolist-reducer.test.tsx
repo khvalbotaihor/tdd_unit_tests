@@ -20,5 +20,8 @@ test('id\'s should be the same in tasks action creator and todolist action creat
     const endTaskState = tasksListsReducer(tasksStartState, action)
     const endTodolistState = todolistsReducer(todolistStartState, action)
 
+    const tasksKey = Object.keys(endTaskState)
 
+    expect(tasksKey[0]).toBe(action.id)
+    expect(endTodolistState[0]["id"]).toBe(action.id)
 });
