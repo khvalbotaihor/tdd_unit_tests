@@ -70,10 +70,14 @@ test('task key is created in case new todoList is added', () => {
     const action = AddTodolistAC(newTitle);
     const endState = tasksListsReducer(startState, action);
 
-    expect(endState['todolistId2'][1].title).toBe(newTitle)
-    expect(endState['todolistId2'][0].title).toBe('Milk')
-    expect(endState['todolistId1'][1].title).toBe('JS')
-    expect(endState['todolistId1'][0].title).toBe('HTML&CSS')
+    const keys = Object.keys(endState)
+    const newKey = keys.find(k => k !=='todolistId1' && k!== 'todolistId2')
+    if (!newKey){
+        throw new Error('New key isnt added');
+    }
+
+    expect(keys.length).toBe(3)
+    expect(newKey).toBeDefined()
 });
 
 
