@@ -78,6 +78,18 @@ test('task key is created in case new todoList is added', () => {
     expect(keys.length).toBe(3)
     expect(newKey).toBeDefined()
 });
+test('task is deleted when todolist is deleted', () => {
+    const action = RemoveTodolistAC('todolistId2');
+    const endState = tasksListsReducer(startState, action);
+
+    const keys = Object.keys(endState)
+    const newKey = keys.find(k => k !=='todolistId1' && k!== 'todolistId2')
+    if (!newKey){
+        throw new Error('New key isnt added');
+    }
+    expect(keys.length).toBe(3)
+    expect(newKey).toBeDefined()
+});
 
 
 
